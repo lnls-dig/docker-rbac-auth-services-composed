@@ -3,9 +3,9 @@ services:
   rbac-auth-services:
     image: lerwys/docker-rbac-auth-services-wildfly
     ports:
-      - "8080:8080"
-      - "9990:9990"
-      - "8443:8443"
+      - "8081:8080"
+      - "9991:9990"
+      - "8444:8443"
     depends_on:
       - rbac-auth-services-postgres
     entrypoint: /wait-for-it.sh
@@ -16,7 +16,7 @@ services:
   rbac-auth-services-postgres:
     image: lerwys/docker-rbac-auth-services-postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - rbac-auth-services-postgres-volume:/var/lib/postgresql/data
     networks:
