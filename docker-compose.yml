@@ -6,6 +6,7 @@ services:
       - "8081:8080"
       - "9991:9990"
       - "8444:8443"
+    container_name: rbac-auth-services
     depends_on:
       - rbac-auth-services-postgres
     entrypoint: /wait-for-it.sh
@@ -17,6 +18,7 @@ services:
     image: lerwys/docker-rbac-auth-services-postgres
     ports:
       - "5433:5432"
+    container_name: rbac-auth-services-postgres
     volumes:
       - rbac-auth-services-postgres-volume:/var/lib/postgresql/data
     networks:
